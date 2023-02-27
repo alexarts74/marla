@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_27_162346) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_27_163459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "dogs", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,7 +34,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_162346) do
     t.index ["reset_password_token"], name: "index_dogs_on_reset_password_token", unique: true
   end
 
-  create_table "humen", force: :cascade do |t|
+  create_table "human_categories", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "human_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_human_categories_on_category_id"
+    t.index ["human_id"], name: "index_human_categories_on_human_id"
+  end
+
+  create_table "humans", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.integer "price"
@@ -36,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_162346) do
     t.bigint "dog_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["dog_id"], name: "index_humen_on_dog_id"
+    t.index ["dog_id"], name: "index_humans_on_dog_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -49,7 +64,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_27_162346) do
     t.index ["human_id"], name: "index_reservations_on_human_id"
   end
 
-  add_foreign_key "humen", "dogs"
+  add_foreign_key "human_categories", "categories"
+  add_foreign_key "human_categories", "humans"
+  add_foreign_key "humans", "dogs"
   add_foreign_key "reservations", "dogs"
-  add_foreign_key "reservations", "humen"
+  add_foreign_key "reservations", "humans"
 end

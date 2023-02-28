@@ -6,3 +6,10 @@
   <%= link_to "log in", new_dog_session_path %>
  <br> <%= link_to "create account", new_dog_registration_path %>
 <% end %>
+
+<% @humans.each do |human| %>
+  <%= human.name %>
+  <%= human.description %>
+  <%= human.price %>
+  <%= human.category %>
+<% end %>

@@ -1,0 +1,15 @@
+<h1>Bonjour</h1>
+
+<% if dog_signed_in? %>
+  <%= link_to "log out",  destroy_dog_session_path, data: { turbo_method: :delete} %>
+<% else %>
+  <%= link_to "log in", new_dog_session_path %>
+ <br> <%= link_to "create account", new_dog_registration_path %>
+<% end %>
+
+<% @humans.each do |human| %>
+  <%= human.name %>
+  <%= human.description %>
+  <%= human.price %>
+  <%= human.category %>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>All my reservations</h1>
+
+
+<% @humans.each do |human| %>
+  <p><%= human.name %></p>
+  <li><%= link_to human.name, human_path(human.id) %> <%= link_to "Delete", human_path(human.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
+  <p><%= human.description %></p>
+  <p><%= human.price %></p>
+  <p><%= human.category %></p>
+<% end %>
+
+
+
+<%= link_to "Offer a new human", new_human_path %>

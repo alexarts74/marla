@@ -1,4 +1,5 @@
 class HumansController < ApplicationController
+  skip_before_action :authenticate_dog!, only: %i[index show]
 
   def index
     @humans = Human.all

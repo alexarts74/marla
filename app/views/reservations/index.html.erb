@@ -1,0 +1,12 @@
+<h1>All my reservations</h1>
+
+
+<% @humans.dog_id.each do |human| %>
+  <p><%= human.name %></p>
+  <p><%= human.description %></p>
+  <p><%= human.price %></p>
+  <p><%= human.category %></p>
+<% end %>
+
+
+<%= link_to "Offer a new human", new_human_path %>

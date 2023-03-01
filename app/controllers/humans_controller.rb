@@ -14,21 +14,25 @@ class HumansController < ApplicationController
 
   def create
     @human = Human.new(human_params)
-    if @human.save
-      redirect_to human_path
+    @human.dog = current_dog
+    if @human.save!
+      redirect_to human_path(@human)
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
-
+    @human = Human.find(params[:id])
+    @human.human_categories.delete_all
+    @human.destroy
+    redirect_to my_account_path, notice: "ciao"
   end
 
   private
 
   def human_params
-    params.require(:human).permit(:name, :description, :price, :category)
+    params.require(:human).permit(:name, :description, :price, :category_ids)
   end
 end
 

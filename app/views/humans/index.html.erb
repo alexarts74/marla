@@ -1,9 +1,18 @@
-<h1>All Humans</h1>
+<h1 class="title">All Humans</h1>
+
+<div class="row container" >
+  <% @humans.each do |human| %>
+    <div class="col-12 col-md-4">
+      <div class="card-human  mx-1">
+        <div class="all-descrition">
+          <p class="name"><%= human.name %></p>
+          <p class="description"><%= human.description %></p>
+          <p class="price"><%= human.price %>€</p>
+          <p class="category"><%= human.category %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 
-<% @humans.each do |human| %>
-  <p><%= human.name %></p>
-  <p><%= human.description %></p>
-  <p><%= human.price %></p>
-  <p><%= human.category %></p>
-<% end %>

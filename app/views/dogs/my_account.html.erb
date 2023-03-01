@@ -1,13 +1,15 @@
-<h2>All your humans</h2>
+<div class="container">
+  <h2>All your humans</h2>
 
-<% @humans.each do |human| %>
-  <p><%= human.name %></p>
-  <li><%= link_to human.name, human_path(human.id) %> <%= link_to "Delete", human_path(human.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
-  <p><%= human.description %></p>
-  <p><%= human.price %></p>
-  <p><%= human.category %></p>
-<% end %>
+  <% @humans.each do |human| %>
+    <p><%= human.name %></p>
+    <li><%= link_to human.name, human_path(human.id) %> <%= link_to "Delete", human_path(human.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
+    <p><%= human.description %></p>
+    <p><%= human.price %></p>
+    <p><%= human.category %></p>
+  <% end %>
 
 
 
-<%= link_to "Offer a new human", new_human_path %>
+  <%= link_to "Offer a new human", new_human_path %>
+</div>

@@ -23,3 +23,4 @@ class ReservationsController < ApplicationController
 #     redirect_to @reservation.human
 #   end
 # end
+end

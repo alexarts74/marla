@@ -1,13 +1,14 @@
 <% if dog_signed_in? && current_dog.photo.attached? %>
   <%= cl_image_tag current_dog.photo.key, height: 300, width: 400, crop: :fill %>
 <% else %>
-  <%= image_tag "cute big face dog.png", height: 300, width: 400, crop: :fill %>
+  <%= image_tag "cute big face dog.png", height: 100, width: 200, crop: :fill, class: "profile-img" %>
 <% end %>
 
 <div class="row container first">
   <% @humans.each do |human| %>
     <div class="col-12 col-md-4">
       <div class="card">
+        <%= cl_image_tag human.photo.key, height: 300, width: 400, crop: :fill if human.photo.attached? %>
         <%= link_to human.name.capitalize, human_path(human.id), class: "name" %>
         <p class="description"><%= human.description.capitalize %></p>
         <p class="price"><%= human.price %> €</p>
@@ -18,5 +19,6 @@
   <% end %>
 </div>
 
-  <%= link_to "Offer a new human", new_human_path, class: "button" %>
 </div>
+
+<%= link_to "Offer a new human", new_human_path, class: "btn"%>

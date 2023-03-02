@@ -1,3 +1,8 @@
+<% if dog_signed_in? && current_dog.photo.attached? %>
+  <%= cl_image_tag current_dog.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <%= image_tag "cute big face dog.png", height: 300, width: 400, crop: :fill %>
+<% end %>
 
 <div class="row container first">
   <% @humans.each do |human| %>

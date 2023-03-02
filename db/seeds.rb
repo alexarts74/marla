@@ -15,8 +15,6 @@ dog_photo = Cloudinary::Uploader.upload("app/assets/images/rebecca.jpeg")
 dog.photo.attach(io: URI.open(dog_photo['url']), filename: "rebecca.jpeg", content_type: "image/jpeg")
 dog.save!
 
-p 'dog created !!!!!!'
-
 Human.destroy_all
 
 10.times do

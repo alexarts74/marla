@@ -4,6 +4,6 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :price %>
-  <%= f.association :categories, as: :radio_buttons %>
+  <%= f.association :categories, as: :check_boxes, include_hidden: false %>
   <%= f.button :submit %>
 <% end %>

@@ -3,4 +3,6 @@
 <%= @human.name %>
 <%= @human.description %>
 <%= @human.price %>
-<%= @human.category %>
+<% @human.categories.each do |category|%>
+  <%= category.name %>
+<% end %>

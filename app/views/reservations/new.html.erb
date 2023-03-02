@@ -1,0 +1,5 @@
+<h1>create reservation</h1>
+<%= simple_form_for [@human, @reservation] do |f| %>
+  <%= f.input :date %>
+  <%= f.button :submit %>
+<% end %>

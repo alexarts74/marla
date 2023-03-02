@@ -1,4 +1,5 @@
 ActiveRecord::Schema[7.0].define(version: 2023_03_02_114825) do
+
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|

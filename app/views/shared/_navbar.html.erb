@@ -19,9 +19,9 @@
           <li class="nav-item dropdown">
             <%= image_tag "cute big face dog.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My account", my_account_path, class: "dropdown-item" %>
-              <%= link_to "My reservations", "#", class: "dropdown-item" %>
               <% if dog_signed_in? %>
+                <%= link_to "My account", my_account_path, class: "dropdown-item" %>
+                <%= link_to "My reservations", reservations_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_dog_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               <% else %>
                 <%= link_to "Log in", new_dog_session_path, class: "dropdown-item" %>

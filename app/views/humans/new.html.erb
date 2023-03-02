@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Create your human</h2>
+  <h2>Offer a new human for rent</h2>
 
 <%= simple_form_for [@dog, @human] do |f| %>
   <%= f.input :name %>
@@ -9,4 +9,3 @@
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, class: "btn-flat" %>
 <% end %>
-

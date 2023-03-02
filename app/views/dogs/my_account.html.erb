@@ -12,11 +12,11 @@
         <p class="description"><%= human.description.capitalize %></p>
         <p class="price"><%= human.price %> €</p>
         <p class="category"><%= human.categories.map(&:name).join(" / ") %></p>
-        <p class="delete"><%= link_to "Delete", human_path(human.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+        <p><%= link_to "Delete", human_path(human.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete"%></p>
       </div>
     </div>
   <% end %>
 </div>
 
-  <%= link_to "Offer a new human", new_human_path %>
+  <%= link_to "Offer a new human", new_human_path, class: "button" %>
 </div>

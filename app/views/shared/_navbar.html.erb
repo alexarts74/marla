@@ -17,7 +17,11 @@
             <%= link_to "Offer a human", new_human_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "cute big face dog.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% if dog_signed_in? && current_dog.photo.attached? %>
+                <%= cl_image_tag current_dog.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "cute big face dog.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My account", my_account_path, class: "dropdown-item" %>
               <%= link_to "My reservations", "#", class: "dropdown-item" %>
@@ -26,7 +30,6 @@
               <% else %>
                 <%= link_to "Log in", new_dog_session_path, class: "dropdown-item" %>
                 <%= link_to "Create account", new_dog_registration_path, class: "dropdown-item" %>
-                </li>
               <% end %>
             </div>
           </li>

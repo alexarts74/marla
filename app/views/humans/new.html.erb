@@ -6,5 +6,7 @@
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.association :categories, as: :check_boxes, include_hidden: false %>
-  <%= f.button :submit %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, class: "btn-flat" %>
 <% end %>
+

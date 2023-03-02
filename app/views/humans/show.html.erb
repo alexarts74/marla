@@ -1,8 +1,11 @@
 <h2>Your new human</h2>
 
+<%= cl_image_tag @human.photo.key %>
 <%= @human.name %>
 <%= @human.description %>
 <%= @human.price %>
 <% @human.categories.each do |category|%>
   <%= category.name %>
 <% end %>
+
+<%= link_to "Book this human", human_reservations_path(@human) %>

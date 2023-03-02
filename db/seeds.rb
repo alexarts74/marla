@@ -5,22 +5,30 @@ puts 'seeding data...'
 
 Dog.destroy_all
 
-dog = Dog.create!(
+dog = Dog.new(
     name: "Tristan",
     email: "tristan@gmail.com",
     presentation: "I'm a good dog",
     password: "qwertz"
   )
+dog_photo = Cloudinary::Uploader.upload("app/assets/images/rebecca.jpeg")
+dog.photo.attach(io: URI.open(dog_photo['url']), filename: "rebecca.jpeg", content_type: "image/jpeg")
+dog.save!
+
+p 'dog created !!!!!!'
 
 Human.destroy_all
 
 10.times do
-  Human.create!(
+  human = Human.new(
     name: Faker::Name.name,
     description: Faker::Lorem.paragraph(sentence_count: 2),
     price: Faker::Number.between(from: 30, to: 300),
     dog: dog
   )
+  human_photo = Cloudinary::Uploader.upload("app/assets/images/ryan2.jpeg")
+  human.photo.attach(io: URI.open(human_photo['url']), filename: "ryan2.jpeg", content_type: "image/jpeg")
+  human.save!
 end
 
 Category.destroy_all

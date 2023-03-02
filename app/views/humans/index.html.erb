@@ -12,6 +12,8 @@
           <p class="description"><%= human.description %></p>
           <p class="price"><%= human.price %>€</p>
           <p class="category"><%= human.categories.map(&:name).join(" / ") %></p>
+          <p><%= link_to "Learn more", human_path(human.id)%></p>
+
         </div>
       </div>
     </div>

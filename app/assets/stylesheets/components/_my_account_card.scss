@@ -7,7 +7,7 @@
 .card {
   margin: 35px 0 35px 0;
   background-color: white;
-  padding: 50px;
+  padding: 30px 50px;
   border-radius: 8px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
@@ -17,4 +17,9 @@
   text-align: center;
   text-decoration: none;
   color: black;
+  margin-bottom: 20px;
+}
+
+.delete {
+  background-color: green;
 }

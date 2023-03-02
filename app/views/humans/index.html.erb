@@ -5,15 +5,13 @@
     <div class="col-12 col-md-4">
 
       <div class="card-human  mx-1">
-        <%= cl_image_tag human.photo.key, height: 200, width: 270, crop: :fill %>
+        <%= cl_image_tag human.photo.key, height: 200, width: 270, crop: :fill if human.photo.attached? %>
         <div class="all-description">
           <h6 class="name"><%= human.name %></h6>
-
           <p class="description"><%= human.description %></p>
           <p class="price"><%= human.price %>€</p>
           <p class="category"><%= human.categories.map(&:name).join(" / ") %></p>
           <p><%= link_to "Learn more", human_path(human.id)%></p>
-
         </div>
       </div>
     </div>

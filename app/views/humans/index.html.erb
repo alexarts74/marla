@@ -3,12 +3,12 @@
 <div class="row container">
   <% @humans.each do |human| %>
     <div class="col-12 col-md-4">
-      <div class="card-human  mx-1">
+      <div class="card-human mx-1">
         <div class="all-descrition">
           <p class="name"><%= human.name %></p>
           <p class="description"><%= human.description %></p>
           <p class="price"><%= human.price %>€</p>
-          <p class="category"><%= human.category %></p>
+          <p class="category"><%= human.categories.map(&:name).join(" / ") %></p>
         </div>
       </div>
     </div>

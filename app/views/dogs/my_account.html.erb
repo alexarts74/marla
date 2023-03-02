@@ -6,7 +6,7 @@
         <%= link_to human.name.capitalize, human_path(human.id), class: "name" %>
         <p class="description"><%= human.description.capitalize %></p>
         <p class="price"><%= human.price %> €</p>
-        <p class="category"><%= human.category %></p>
+        <p class="category"><%= human.categories.map(&:name).join(" / ") %></p>
         <p class="delete"><%= link_to "Delete", human_path(human.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
       </div>
     </div>

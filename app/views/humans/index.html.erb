@@ -5,8 +5,8 @@
     <div class="col-12 col-md-4">
 
       <div class="card-human  mx-1">
+        <%= cl_image_tag human.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="all-description">
-          <%= cl_image_tag @human.photo.key %>
           <h6 class="name"><%= human.name %></h6>
 
           <p class="description"><%= human.description %></p>

@@ -5,6 +5,7 @@
     <div class="col-12 col-md-4">
       <div class="card-human  mx-1">
         <div class="all-description">
+          <%= cl_image_tag @human.photo.key %>
           <h6 class="name"><%= human.name %></h6>
           <p class="description"><%= human.description %></p>
           <h6 class="price"><%= human.price %>€</h6>

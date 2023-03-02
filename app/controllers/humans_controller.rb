@@ -33,7 +33,7 @@ class HumansController < ApplicationController
   private
 
   def human_params
-    params.require(:human).permit(:name, :description, :price, :category_ids)
+    params.require(:human).permit(:name, :description, :price, :category_ids, :photo)
   end
 end
 

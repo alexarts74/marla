@@ -1,26 +1,38 @@
 class ReservationsController < ApplicationController
-
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where(dog: current_dog)
   end
 
-#   def new
-#     @reservation = Reservation.new
-#   end
+  def show
+    @reservation = Reservation.find(params[:id])
+  end
 
-#   def create
-#     @human = @Human.find(params[:human_id])
-#     @reservation = Reservation.new(reservation_params)
-#     @reservation.human = @human
-#     if @reservation.save
-#       redirect_to @reservations
-#     end
-#   end
+  def new
+    @human = Human.find(params[:human_id])
+    @reservation = Reservation.new
+  end
 
-#   def destroy
-#     @reservation = Reservation.find(params[:id])
-#     @reservation.destroy
-#     redirect_to @reservation.human
-#   end
-# end
+  def create
+    @human = Human.find(params[:human_id])
+    @reservation = Reservation.new(reservation_params)
+    @reservation.dog = current_dog
+    @reservation.human = @human
+    if @reservation.save!
+      redirect_to reservation_path(@reservation)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to human_reservations_path(@reservation)
+  end
+
+  private
+
+  def reservation_params
+    params.require(:reservation).permit(:date)
+  end
 end

@@ -17,6 +17,10 @@ class HumansController < ApplicationController
     @human = Human.new(human_params)
     @human.dog = current_dog
     if @human.save!
+      params[:human][:category_ids].each do |category_id|
+        category = Category.find(category_id)
+        HumanCategory.create!(category: category, human: @human)
+      end
       redirect_to human_path(@human)
     else
       render :new, status: :unprocessable_entity
@@ -33,7 +37,7 @@ class HumansController < ApplicationController
   private
 
   def human_params
-    params.require(:human).permit(:name, :description, :price, :category_ids)
+    params.require(:human).permit(:name, :description, :price)
   end
 end
 

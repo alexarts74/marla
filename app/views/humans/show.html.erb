@@ -8,4 +8,6 @@
   <%= category.name %>
 <% end %>
 
-<%= link_to "Book this human", new_human_reservation_path(@human) %>
+<% unless @human.dog = current_dog %>
+  <%= link_to "Book this human", new_human_reservation_path(@human) %>
+<% end %>

@@ -1,11 +1,14 @@
 <div class="container">
   <h2>Offer a new human for rent</h2>
 
-<%= simple_form_for [@dog, @human] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.association :categories, as: :check_boxes, include_hidden: false %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, class: "btn-flat" %>
-<% end %>
+  <%= simple_form_for [@dog, @human] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <div class="d-flex">
+      <%= f.association :categories, as: :check_boxes, include_hidden: false%>
+    </div>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, class: "btn-flat" %>
+  <% end %>
+</div>

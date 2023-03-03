@@ -1,14 +1,4 @@
 <h1 class="title"> Discover some new humans</h1>
-<%#
-<h1>
-  <span>Votre nouveau</span>
-  <div class="message">
-    <div class="word1">humain</div>
-    <div class="word2">compagnon</div>
-    <div class="word3">jouet</div>
-  </div>
-</h1> %>
-
 <div class="row container">
   <% @humans.each do |human| %>
     <div class="col-12 col-md-4">
@@ -17,7 +7,6 @@
         <%= cl_image_tag human.photo.key, height: 200, width: 270, crop: :fill if human.photo.attached? %>
         <div class="all-description">
           <h6 class="name"><%= human.name %></h6>
-          <p class="description"><%= human.description %></p>
           <p class="price"><%= human.price %>€</p>
           <p class="category"><%= human.categories.map(&:name).join(" / ") %></p>
           <p><%= link_to "Learn more", human_path(human.id)%></p>

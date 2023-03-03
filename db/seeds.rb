@@ -45,7 +45,6 @@ aubrey = Human.new(
   price: Faker::Number.between(from: 30, to: 300),
   dog: dog,
 )
-
 aubrey.categories = [sporty, feeds_well]
 
 aubrey_photo = Cloudinary::Uploader.upload("app/assets/images/drake.jpeg")
@@ -59,7 +58,6 @@ christina = Human.new(
   price: Faker::Number.between(from: 30, to: 300),
   dog: dog,
 )
-
 christina.categories = [cuddly, kind]
 
 christina_photo = Cloudinary::Uploader.upload("app/assets/images/christina.jpeg")
@@ -74,8 +72,7 @@ bow_wow = Human.new(
   price: Faker::Number.between(from: 30, to: 300),
   dog: dog,
 )
-
-bow_wow.categories = [great_frisbee_player, crazy]
+bow_wow.categories = [great_frisbee_player]
 
 bow_wow_photo = Cloudinary::Uploader.upload("app/assets/images/lilbowwow.jpeg")
 bow_wow.photo.attach(io: URI.open(bow_wow_photo['url']), filename: "lilbowwow.jpeg", content_type: "image/jpeg")
@@ -88,13 +85,38 @@ pitbull = Human.new(
   price: Faker::Number.between(from: 30, to: 300),
   dog: dog,
 )
-
 pitbull.categories = [crazy]
 
 pitbull_photo = Cloudinary::Uploader.upload("app/assets/images/pitbull.jpeg")
 pitbull.photo.attach(io: URI.open(pitbull_photo['url']), filename: "pitbull.jpeg", content_type: "image/jpeg")
 
 pitbull.save!
+
+madeleine = Human.new(
+  name: "Madeleine",
+  description: "My best friend who loves dogs",
+  price: Faker::Number.between(from: 30, to: 300),
+  dog: dog,
+)
+madeleine.categories = [great_frisbee_player]
+
+madeleine_photo = Cloudinary::Uploader.upload("app/assets/images/madeleine.jpeg")
+madeleine.photo.attach(io: URI.open(madeleine_photo['url']), filename: "madeleine.jpeg", content_type: "image/jpeg")
+
+madeleine.save!
+
+greta = Human.new(
+  name: "Greta",
+  description: "Nice girl who cares a lot about the environment",
+  price: Faker::Number.between(from: 30, to: 300),
+  dog: dog,
+)
+greta.categories = [cuddly]
+
+greta_photo = Cloudinary::Uploader.upload("app/assets/images/greta.jpeg")
+greta.photo.attach(io: URI.open(greta_photo['url']), filename: "greta.jpeg", content_type: "image/jpeg")
+
+greta.save!
 
 
 

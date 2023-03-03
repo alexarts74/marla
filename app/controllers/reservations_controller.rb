@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
     @reservation.dog = current_dog
     @reservation.human = @human
     if @reservation.save!
-      redirect_to reservation_path(@reservation)
+      redirect_to reservations_path
     else
       render :new, status: :unprocessable_entity
     end

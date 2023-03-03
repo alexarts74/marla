@@ -1,14 +1,16 @@
-<h2>Your new human</h2>
-
-<%= cl_image_tag @human.photo.key %>
-<%= @human.name %>
-<%= @human.description %>
-<%= @human.price %>
-<% @human.categories.each do |category|%>
-  <%= category.name %>
-<% end %>
-
+<div class="container">
+  <h2 class="title">Human for rent</h2>
+    <div class="block">
+      <%= cl_image_tag @human.photo.key, class: "mx-auto d-block image"%>
+      <li class="li">Name : <%= @human.name %></li>
+      <li class="li">Description : <%= @human.description %></li>
+      <li class="li">Price : <%= @human.price %> €</li>
+      <% @human.categories.each do |category|%>
+      <li class="li">Category :<%= category.name %></li>
+      <% end %>
+    </div>
+</div>
 <% if @human.dog != current_dog %>
-  <%= link_to "Book this human", new_human_reservation_path(@human) %>
+  <%= link_to "Book this human", new_human_reservation_path(@human), class: "button" %>
 <% end %>
-   <%= link_to "See all my humans", my_account_path if dog_signed_in? %>
+  <%= link_to "See all my humans", my_account_path, class: "button" if dog_signed_in? %>

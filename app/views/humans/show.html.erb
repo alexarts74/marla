@@ -1,13 +1,18 @@
 <div class="container">
   <h2 class="title">Human for rent</h2>
-    <div class="block">
+    <div class="_human_display_card row">
+     <div class="col">
       <%= cl_image_tag @human.photo.key, class: "mx-auto d-block image"%>
-      <li class="li">Name : <%= @human.name %></li>
-      <li class="li">Description : <%= @human.description %></li>
-      <li class="li">Price : <%= @human.price %> €</li>
+     </div>
+     <div class="col">
+      <p><b>Name: </b> <%= @human.name %></p>
+      <p><strong>Description: </strong> <%= @human.description %></p>
+      <p><strong>Price: </strong><%= @human.price %> €</p>
+      <p><strong>Category: </strong></p>
       <% @human.categories.each do |category|%>
-      <li class="li">Category :<%= category.name %></li>
+      <p><%= category.name %></p>
       <% end %>
+     </div>
     </div>
 </div>
 <% if @human.dog != current_dog %>

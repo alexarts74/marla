@@ -9,22 +9,22 @@
         <%= f.input :name,
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "name" }%>
+                      input_html: {class: "input", autocomplete: "name" }%>
           <%= f.input :email,
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "email" }%>
+                      input_html: {class: "input", autocomplete: "email" }%>
       <%= f.input :presentation,
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "presentation" }%>
+                      input_html: {class: "input", autocomplete: "presentation" }%>
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: {class: "input", autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
                       required: true,
-                      input_html: { autocomplete: "new-password" } %>
+                      input_html: {class: "input", autocomplete: "new-password" } %>
            <%= f.input :photo, as: :file %>
         </div>
 

@@ -1,9 +1,9 @@
 <% if dog_signed_in? && current_dog.photo.attached? %>
-  <%= cl_image_tag current_dog.photo.key, height: 100, width: 100, crop: :fill %>
+  <%= cl_image_tag current_dog.photo.key, height: 100, width: 100, crop: :fill, class: "mx-auto d-block rounded-circle image-profil" %>
 <% else %>
   <%= image_tag "cute big face dog.png", height: 100, width: 100, crop: :fill, class: "mx-auto d-block rounded-circle image-profil" %>
-  <h2 class="h2">Hi <%= current_dog.name.capitalize %> </h2>
 <% end %>
+  <h2 class="h2">Hi <%= current_dog.name.capitalize %> </h2>
 
 <div class="row container first">
   <% @humans.each do |human| %>

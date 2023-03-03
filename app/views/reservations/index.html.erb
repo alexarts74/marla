@@ -1,8 +1,21 @@
-<h1>All my reservations</h1>
+<div class="container"><h1>All my reservations</h1>
+</div>
+<div class="row container">
 
 <% @reservations.each do |reservation| %>
-  <p><%= link_to reservation.date, reservation_path(reservation) %></p>
+  <div class="col-12 col-md-4">
+    <div class="card-img  mx-1">
+      <%= cl_image_tag reservation.human.photo.key, crop: :fill, class: "image" if reservation.human.photo.attached? %>
+      <div class="all-description">
+        <h6 class="name"><%= reservation.human.name %></h6>
+        <h6 class="date"><%= reservation.date %></h6>
+        <p class="price"><%= reservation.human.price %>€</p>
+        <p class="category"><%= reservation.human.categories.map(&:name).join(" / ") %></p>
+        <p><%= link_to "Delete this reservation", reservation_path(reservation), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete"%></p>
+      </div>
+    </div>
+  </div>
 <% end %>
-
-
-<%= link_to "See all humans", root_path %>
+<%= link_to "Check out more humans for rent", root_path %>
+</div>
+</div>

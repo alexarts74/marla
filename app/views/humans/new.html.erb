@@ -1,6 +1,7 @@
 <div class="container">
   <h2>Offer a new human for rent</h2>
 
+
 <%= simple_form_for [@dog, @human] do |f| %>
   <%= f.input :name,
               input_html: {class: "input", autocomplete: "email" } %>

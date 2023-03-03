@@ -4,12 +4,13 @@
 
 <%= simple_form_for [@dog, @human] do |f| %>
   <%= f.input :name,
-              input_html: {class: "input", autocomplete: "email" } %>
+              input_html: {class: "input-focus"} %>
   <%= f.input :description,
-                input_html: {class: "input", autocomplete: "email" } %>
+                input_html: {class: "input-focus"} %>
   <%= f.input :price,
-                input_html: {class: "input", autocomplete: "email" } %>
+                input_html: {class: "input-focus"} %>
   <%= f.association :categories, as: :check_boxes, include_hidden: false %>
-  <%= f.input :photo, as: :file,class: "input" %>
+  <%= f.input :photo, as: :file,class: "input-focus" %>
   <%= f.button :submit, class: "btn-flat" %>
 <% end %>
+</div>

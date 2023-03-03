@@ -8,6 +8,7 @@
   <%= category.name %>
 <% end %>
 
-<% unless @human.dog = current_dog %>
+<% if @human.dog != current_dog %>
   <%= link_to "Book this human", new_human_reservation_path(@human) %>
 <% end %>
+   <%= link_to "See all my humans", my_account_path if dog_signed_in? %>

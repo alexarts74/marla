@@ -79,6 +79,19 @@ bow_wow.photo.attach(io: URI.open(bow_wow_photo['url']), filename: "lilbowwow.jp
 
 bow_wow.save!
 
+max = Human.new(
+  name: "Max",
+  description: "a 10-year-old boy who has a wild imagination. He loves pretending to be a dog and can often be found barking and chasing his own tail. He's a loyal companion and will fetch your slippers on command - just don't forget to give him a treat!",
+  price: Faker::Number.between(from: 30, to: 300),
+  dog: dog,
+)
+max.categories = [great_frisbee_player]
+
+max_photo = Cloudinary::Uploader.upload("app/assets/images/meathead3.jpg")
+max.photo.attach(io: URI.open(max_photo['url']), filename: "meathead3.jpg", content_type: "image/jpg")
+
+max.save!
+
 pitbull = Human.new(
   name: "Pitbull",
   description: "Haha it's Mr. 305 checkin' in for the remix - you know that 75 Street Brazil? Well, this year gon' be called Calle Ocho hahahaha",

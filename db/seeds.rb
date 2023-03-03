@@ -2,8 +2,10 @@ require 'faker'
 
 
 puts 'seeding data...'
-
-# Category.destroy_all
+Dog.destroy_all
+Human.destroy_all
+HumanCategory.destroy_all
+Category.destroy_all
 
 sporty = Category.create!(
   name: "sporty"
@@ -24,7 +26,6 @@ crazy = Category.create!(
   name: "crazy"
 )
 
-Dog.destroy_all
 
 dog = Dog.new(
     name: "Tristan",
@@ -36,7 +37,6 @@ dog_photo = Cloudinary::Uploader.upload("app/assets/images/rebecca.jpeg")
 dog.photo.attach(io: URI.open(dog_photo['url']), filename: "rebecca.jpeg", content_type: "image/jpeg")
 dog.save!
 
-Human.destroy_all
 
 
 aubrey = Human.new(

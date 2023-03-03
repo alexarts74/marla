@@ -7,7 +7,7 @@
 
 <div class="row container first">
   <% @humans.each do |human| %>
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-4 d-flex align-items-stretch">
       <div class="card-img">
         <%= cl_image_tag human.photo.key, crop: :fill, class: "image" if human.photo.attached? %>
           <div class="card">

@@ -3,13 +3,13 @@
   <% @humans.each do |human| %>
     <div class="col-12 col-md-4">
 
-      <div class="card-human  mx-1">
-        <%= cl_image_tag human.photo.key, height: 200, width: 270, crop: :fill if human.photo.attached? %>
+      <div class="card-img  mx-1">
+        <%= cl_image_tag human.photo.key, crop: :fill, class: "image" if human.photo.attached? %>
         <div class="all-description">
           <h6 class="name"><%= human.name %></h6>
           <p class="price"><%= human.price %>€</p>
           <p class="category"><%= human.categories.map(&:name).join(" / ") %></p>
-          <p><%= link_to "Learn more", human_path(human.id)%></p>
+          <p><%= link_to "Learn more", human_path(human.id), class: "delete"%></p>
         </div>
       </div>
     </div>

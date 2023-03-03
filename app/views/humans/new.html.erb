@@ -2,10 +2,13 @@
   <h2>Offer a new human for rent</h2>
 
 <%= simple_form_for [@dog, @human] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
+  <%= f.input :name,
+              input_html: {class: "input", autocomplete: "email" } %>
+  <%= f.input :description,
+                input_html: {class: "input", autocomplete: "email" } %>
+  <%= f.input :price,
+                input_html: {class: "input", autocomplete: "email" } %>
   <%= f.association :categories, as: :check_boxes, include_hidden: false %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photo, as: :file,class: "input" %>
   <%= f.button :submit, class: "btn-flat" %>
 <% end %>
